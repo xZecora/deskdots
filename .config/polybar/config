@@ -1,1 +1,335 @@
-/home/xzecora/.config/polybar/config
+;#########################################################################
+;#########################################################################
+;######## ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗  ########
+;######## ██╔══██╗██╔═══██╗██║  ╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗ ########
+;######## ██████╔╝██║   ██║██║   ╚████╔╝ ██████╔╝███████║██████╔╝ ########
+;######## ██╔═══╝ ██║   ██║██║    ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗ ########
+;######## ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║ ########
+;######## ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝ ########
+;#########################################################################
+;#########################################################################
+
+[colors]
+;background = ${xrdb:color0:#222}
+;background = #222
+background-alt = #444
+foreground = ${xrdb:color6:#222}
+;foreground = #dfdfdf
+foreground-alt = #555
+primary = #ffb52a
+secondary = #e60053
+alert = #bd2c40
+background = ${xrdb:color0:#00000000}
+tbackground = #00000000
+;foreground = #b5d393
+;foreground = #d96da1
+
+[bar/main]
+monitor = DP-0
+width = 100%
+height = 23
+radius = 0.0
+
+;bottom = true
+
+;override-redirect = true
+wm-restack = bspwm
+
+background = ${colors.tbackground}
+foreground = ${colors.foreground}
+
+line-size = 3
+line-color = #f00
+
+border-size = 0
+border-color = #00000000
+
+padding-left = 0
+;padding-right = 1
+
+font-0 = Sans-Regular:pixelsize=10;3
+font-1 = unifont:fontformat=truetype:size=8:antialias=true;1
+font-2 = siji:pixelsize=10;2
+font-3 = FontAwesome:pixelsize=10;2
+font-4 = Monospace:size=10;11
+font-5 = MesloLGS NF:size=14;3
+
+modules-left = date RightArrow3 RightArrow2 RightArrow1
+;modules-left = bspwm
+modules-center = MiddleArrowLeft bspwm MiddleArrowRight 
+modules-right = arrow1 LeftStripe arrow3 cpu arrow2 memory arrow3 temperature
+;modules-right = temperature date powermenu
+
+;tray-position = right
+tray-padding = 2
+;tray-background = #0063ff
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+enable-ipc = true
+
+[bar/left]
+inherit = bar/main
+monitor = DVI-D-0
+modules-left =  
+modules-right =arrow1 LeftStripe arrow3 bspwm 
+padding-right = 0
+modules-center = 
+[bar/right]
+inherit = bar/main
+monitor = HDMI-0
+modules-left = bspwm RightArrow3 RightArrow2 RightArrow1
+modules-right = 
+modules-center = 
+
+padding-right = 5
+tray-padding = 5
+
+[module/i3]
+type = internal/i3
+format = <label-state> <label-mode>
+index-sort = true
+wrapping-scroll = false
+
+fixed-center = false
+label-focused = %name%
+label-focused-background = ${colors.background}
+label-focused-foreground = ${colors.foreground}
+label-focused-padding = 2
+
+label-unfocused = %name%
+label-unfocused-background = ${colors.foreground}
+label-unfocused-foreground = ${colors.background}
+label-unfocused-padding = 2
+
+label-urgent = 
+label-urgent-background = #00000000
+label-urgent-foreground = ${colors.background}
+label-urgent-padding = 2
+
+label-visible = %name%
+label-visible-background = ${colors.foreground} 
+label-visible-foreground = ${colors.background}
+label-visible-padding = 2
+
+pin-workspaces = true
+
+[module/bspwm]
+type = internal/bspwm
+
+pin-workspaces = true
+
+inline-mode = false
+
+enable-click = false
+
+enable-scroll = false
+
+reverse-scroll = false
+
+label-focused = 
+label-focused-foreground = ${colors.foreground}
+label-focused-background = ${colors.background}
+label-focused-padding = 2
+label-focused-font = 3
+label-occupied = 
+label-occupied-foreground = ${colors.background}
+label-occupied-background = ${colors.foreground}
+label-occupied-padding = 2
+label-occupied-font = 3
+label-urgent = 
+label-urgent-foreground = ${colors.background}
+label-urgent-background = ${colors.foreground}
+label-urgent-padding = 2
+label-urgent-font = 3
+label-empty = 
+label-empty-foreground = ${colors.background}
+label-empty-background = ${colors.foreground}
+label-empty-padding = 2
+label-empty-font = 3
+
+label-separator-padding = 2
+
+[module/LeftStripe]
+type = custom/text
+content = ""
+content-foreground = ${colors.background}
+content-background = ${colors.foreground}
+
+[module/arrow1]
+type = custom/text
+content = ""
+content-foreground = ${colors.foreground}
+content-background = ${colors.tbackground}
+
+[module/arrow2]
+type = custom/text
+content = " "
+content-foreground = ${colors.background}
+content-background = ${colors.foreground}
+
+[module/arrow3]
+type = custom/text
+content = " "
+content-foreground = ${colors.foreground}
+content-background = ${colors.background}
+
+[module/RightStripe]
+type = custom/text
+content = ""
+content-foreground = ${colors.foreground}
+content-background = ${colors.background}
+
+[module/RightArrow1]
+type = custom/text
+content = ""
+content-foreground = ${colors.foreground}
+content-background = ${colors.tbackground}
+
+[module/RightArrow2]
+type = custom/text
+content = ""
+content-foreground = ${colors.background}
+content-background = ${colors.foreground}
+
+[module/RightArrow3]
+type = custom/text
+content = ""
+content-foreground = ${colors.foreground}
+content-background = ${colors.background}
+
+[module/MiddleArrowLeft]
+type = custom/text
+content = ""
+;content = ""
+content-foreground = ${colors.foreground}
+;content-background = ${colors.tbackground}
+;◥ ◤◢ ◣
+[module/MiddleArrowRight]
+type = custom/text
+content = ""
+;1content = ""
+content-foreground = ${colors.foreground}
+content-background = ${colors.tbackground}
+
+
+[module/memory]
+type = internal/memory
+interval = 1
+
+format-prefix = "  "
+;format-prefix = ram
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
+format-margin-top = -5
+
+label = %percentage_used%%
+
+[module/date]
+type = internal/date
+interval = 1
+
+date = " %Y-%m-%d"
+;date-alt = " %Y-%m-%d"
+
+time = %H:%M:%S
+;time-alt = %H:%M:%S
+
+format-prefix = " "
+format-prefix-foreground = ${colors.background}
+format-prefix-background = ${colors.foreground}
+
+format-foreground = ${colors.background}
+format-background = ${colors.foreground}
+
+label = %date% %time%
+
+[module/cpu]
+type = internal/cpu
+interval = 1.0
+
+format = <label>
+;format = <ramp-coreload><label> 
+format-prefix = " "
+format-foreground = ${colors.background}
+format-background = ${colors.foreground}
+
+label = %percentage:3%%
+;   
+
+ramp-coreload-0 = ▁
+ramp-coreload-1 = ▂
+ramp-coreload-2 = ▃
+ramp-coreload-3 = ▄
+ramp-coreload-4 = ▅
+ramp-coreload-5 = ▆
+ramp-coreload-6 = ▇
+;ramp-coreload-7 = █
+
+[module/temperature]
+type = internal/temperature
+thermal-zone = 0
+warn-temperature = 65
+interval = 2
+
+format = <ramp> <label>
+format-warn = <ramp> <label-warn>
+format-prefix = " "
+format-foreground = ${colors.background}
+format-background = ${colors.foreground}
+format-warn-foreground = ${colors.background}
+format-warn-background = ${colors.foreground}
+
+label = "%temperature-c%  "
+label-warn = "%temperature-c%  "
+
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+ramp-3 = 
+ramp-4 = 
+
+[module/powermenu]
+type = custom/menu
+expand-right = true
+
+format-spacing = 3
+format-background = ${colors.background}
+format-foreground = ${colors.background}
+label-open = "  "
+label-open-background = ${colors.background}
+label-open-foreground = ${colors.foreground}
+label-close = "   cancel"
+label-close-foreground = ${colors.foreground}
+label-separator = |
+label-separator-foreground = ${colors.foreground}
+
+menu-0-0 = reboot
+menu-0-0-exec = menu-open-1
+menu-0-1 = "power off  "
+menu-0-1-exec = menu-open-2
+
+menu-1-0 = cancel
+menu-1-0-exec = menu-open-0
+menu-1-1 = reboot
+menu-1-1-exec = sudo reboot
+
+menu-2-0 = power off
+menu-2-0-exec = sudo poweroff
+menu-2-1 = cancel
+menu-2-1-exec = menu-open-0
+
+[settings]
+screenchange-reload = true
+;compositing-background = xor
+;compositing-background = screen
+;compositing-foreground = source
+;compositing-border = over
+;pseudo-transparency = false
+
+[global/wm]
+margin-top = 0
+margin-bottom = 0
+
+; vim:ft=dosini

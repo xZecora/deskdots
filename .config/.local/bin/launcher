@@ -1,1 +1,8 @@
-/home/xzecora/.local/bin/launcher
+#!/bin/sh
+killall unclutter
+killall sxhkd
+wait
+sxhkd &
+picom &
+sudo python /home/xzecora/Documents/thermaltake/run.py
+unclutter --timeout 5

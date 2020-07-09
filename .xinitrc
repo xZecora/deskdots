@@ -1,1 +1,1 @@
-/home/xzecora/.xinitrc
+exec dbus-launch --exit-with-session dwm

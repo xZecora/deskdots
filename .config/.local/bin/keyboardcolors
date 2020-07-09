@@ -1,1 +1,4 @@
-/home/xzecora/.local/bin/keyboardcolors
+#!/bin/bash
+xrdb ~/.cache/wal/colors.Xresources
+color1=`xrdb -query | awk '/*.color1/ { print substr($2,2) }'`
+echo "rgb $color1" > /dev/input/ckb1/cmd

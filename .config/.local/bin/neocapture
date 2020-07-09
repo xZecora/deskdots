@@ -1,1 +1,2 @@
-/home/xzecora/.local/bin/neocapture
+#!/bin/sh
+neofetch && sleep 2 && maim -u ~/Documents/Screenshots/$(date +%s).png

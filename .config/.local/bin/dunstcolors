@@ -1,1 +1,29 @@
-/home/xzecora/.local/bin/dunstcolors
+#!/bin/bash
+# Update alacritty config to apply Xresources color scheme
+
+# Target file
+target_file="$HOME/.config/dunst/dunstrc"
+
+# copy input file to temporary file for black magic fuckery
+# (alacritty applies colors when the config file is written, so we want to do it
+# all in one write)
+cp $target_file.in $target_file.tmp
+
+# Grab colors from Xresources
+xrdb ~/.cache/wal/colors.Xresources
+
+# Named colors
+foreground=`xrdb -query | awk '/*.foreground/ { print substr($2,2) }'`
+background=`xrdb -query | awk '/*.background/ { print substr($2,2) }'`
+color1=`xrdb -query | awk '/*.color1/ { print substr($2,2) }'`
+sed -i "s/%clfg%/#$foreground/g" $target_file.tmp
+sed -i "s/%clbg%/#$background/g" $target_file.tmp
+sed -i "s/%clfr%/#$background/g" $target_file.tmp
+
+# Finally, replace target file with our updated one
+rm $target_file
+mv $target_file.tmp $target_file
+
+killall dunst
+wait
+dunst &

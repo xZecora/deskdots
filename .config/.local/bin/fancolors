@@ -1,1 +1,36 @@
-/home/xzecora/.local/bin/fancolors
+#!/bin/bash
+# Update alacritty config to apply Xresources color scheme
+
+# Target file
+target_file="/etc/linux_thermaltake_rgb/config.yml"
+
+# copy input file to temporary file for black magic fuckery
+# (alacritty applies colors when the config file is written, so we want to do it
+# all in one write)
+cp $target_file.in $target_file.tmp
+
+# Grab colors from Xresources
+xrdb /home/xzecora/.cache/wal/colors.Xresources
+
+# Named colors
+color1=`xrdb -query | awk '/*.color1:/ { print substr($2,2) }'`
+echo $color1
+hex1=${color1:0:2}
+echo $hex1
+hex2=${color1:2:2}
+echo $hex2
+hex3=${color1:4:6}
+echo $hex3
+red=$((16#$hex1))
+green=$((16#$hex2))
+blue=$((16#$hex3))
+echo $red $green $blue
+sed -i "s/%r%/$red/g" $target_file.tmp
+sed -i "s/%g%/$green/g" $target_file.tmp
+sed -i "s/%b%/$blue/g" $target_file.tmp
+
+# Finally, replace target file with our updated one
+rm $target_file
+mv $target_file.tmp $target_file
+
+
