@@ -1,0 +1,1 @@
+/home/xzecora/.p10k.zsh

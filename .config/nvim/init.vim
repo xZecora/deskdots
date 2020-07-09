@@ -1,0 +1,1 @@
+/home/xzecora/.config/nvim/init.vim

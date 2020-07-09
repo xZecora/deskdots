@@ -1,0 +1,1 @@
+/home/xzecora/.config/ranger/commands_full.py

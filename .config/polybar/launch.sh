@@ -1,0 +1,1 @@
+/home/xzecora/.config/polybar/launch.sh

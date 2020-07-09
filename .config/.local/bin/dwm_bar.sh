@@ -1,0 +1,1 @@
+/home/xzecora/.local/bin/dwm_bar.sh
