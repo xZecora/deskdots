@@ -43,7 +43,9 @@ alias vimrc="vim ~/.vimrc"
 alias xbps="sudo xbps-install"
 alias vis="cli-visualizer"
 alias ls="exa -als type"
-
+alias dwm="startx ~/.xinitrc dwm"
+alias spectrwm="startx ~/.xinitrc spectrwm"
+alias bspwm="startx ~/.xinitrc bspwm"
 HISTSIZE=10000
 SAVEHIST=10000
 HISTFILE=~/.cache/zsh/.zsh_history

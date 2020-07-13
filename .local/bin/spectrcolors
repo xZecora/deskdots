@@ -1,0 +1,40 @@
+#!/bin/bash
+
+# Target file
+target_file="$HOME/.config/spectrwm/spectrwm"
+
+# copy input file to temporary file for black magic fuckery
+cp $target_file.base $target_file.tmp
+
+# Grab colors from Xresources
+xrdb ~/.cache/wal/colors.Xresources
+
+# Named colors
+background=$(echo $(xrdb -query | awk '/*.background/ { print substr($2,2,2) }')/$(xrdb -query | awk '/*.background/ { print substr($2,4,2) }')/$(xrdb -query | awk '/*.background/ { print substr($2,6,2) }'))
+color0=$(echo $(xrdb -query | awk '/*.color0/ { print substr($2,2,2) }')/$(xrdb -query | awk '/*.color0/ { print substr($2,4,2) }')/$(xrdb -query | awk '/*.color0/ { print substr($2,6,2) }'))
+color1=$(echo $(xrdb -query | awk '/*.color1:/ { print substr($2,2,2) }')/$(xrdb -query | awk '/*.color1:/ { print substr($2,4,2) }')/$(xrdb -query | awk '/*.color1:/ { print substr($2,6,2) }'))
+color2=$(echo $(xrdb -query | awk '/*.color2/ { print substr($2,2,2) }')/$(xrdb -query | awk '/*.color2/ { print substr($2,4,2) }')/$(xrdb -query | awk '/*.color2/ { print substr($2,6,2) }'))
+color3=$(echo $(xrdb -query | awk '/*.color3/ { print substr($2,2,2) }')/$(xrdb -query | awk '/*.color3/ { print substr($2,4,2) }')/$(xrdb -query | awk '/*.color3/ { print substr($2,6,2) }'))
+color4=$(echo $(xrdb -query | awk '/*.color4/ { print substr($2,2,2) }')/$(xrdb -query | awk '/*.color4/ { print substr($2,4,2) }')/$(xrdb -query | awk '/*.color4/ { print substr($2,6,2) }'))
+color5=$(echo $(xrdb -query | awk '/*.color5/ { print substr($2,2,2) }')/$(xrdb -query | awk '/*.color5/ { print substr($2,4,2) }')/$(xrdb -query | awk '/*.color5/ { print substr($2,6,2) }'))
+color6=$(echo $(xrdb -query | awk '/*.color6:/ { print substr($2,2,2) }')/$(xrdb -query | awk '/*.color6:/ { print substr($2,4,2) }')/$(xrdb -query | awk '/*.color6:/ { print substr($2,6,2) }'))
+color7=$(echo $(xrdb -query | awk '/*.color7/ { print substr($2,2,2) }')/$(xrdb -query | awk '/*.color7/ { print substr($2,4,2) }')/$(xrdb -query | awk '/*.color7/ { print substr($2,6,2) }'))
+color8=$(echo $(xrdb -query | awk '/*.color8/ { print substr($2,2,2) }')/$(xrdb -query | awk '/*.color8/ { print substr($2,4,2) }')/$(xrdb -query | awk '/*.color8/ { print substr($2,6,2) }'))
+echo $color0 $color1 $color2 $color3 $color4 $color5 $color6 $color7 $color8
+
+sed -i "s+%clbg%+$background+g" $target_file.tmp
+sed -i "s+%cl0%+$color0+g" $target_file.tmp
+sed -i "s+%cl1%+$color1+g" $target_file.tmp
+sed -i "s+%cl2%+$color2+g" $target_file.tmp
+sed -i "s+%cl3%+$color3+g" $target_file.tmp
+sed -i "s+%cl4%+$color4+g" $target_file.tmp
+sed -i "s+%cl5%+$color5+g" $target_file.tmp
+sed -i "s+%cl6%+$color6+g" $target_file.tmp
+sed -i "s+%cl7%+$color7+g" $target_file.tmp
+sed -i "s+%cl8%+$color8+g" $target_file.tmp
+
+# Finally, replace target file with our updated one
+rm $target_file.conf
+mv $target_file.tmp $target_file.conf
+
+kill -HUP $(pidof spectrwm)

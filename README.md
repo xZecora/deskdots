@@ -23,5 +23,5 @@ cd deskdots
 + dwm bar I use
 + and several scripts I use to manage things about my computer and setup, most of which are personalized for my computer
 
-Several included programs, like spectrwm, are barely setup and primarily exist for my ease of access, wouldn't recommend using them
+Several included programs aren't ready out of the box for every computer to use
 **note to add visual indication of programs that are and arent viable for immediate use**

@@ -17,10 +17,8 @@ bgloc="${XDG_DATA_HOME:-$HOME/.local/share/}/bg.jpg"
 wal -i "$(readlink -f  "$bgloc")" -o "${XDG_CONFIG_HOME:-$HOME/.config}/wal/postrun" >/dev/null 2>&1 
 
 wait
-cd /home/xzecora/Documents/zecwm/ && sudo make clean install >> /dev/null
-wait
 dunstcolors &
 keyboardcolors &
 #sudo /home/xzecora/.local/bin/fancolors
 #sudo python /home/xzecora/Documents/thermaltake/run.py
-kill -HUP $(pidof dwm)
+spectrcolors

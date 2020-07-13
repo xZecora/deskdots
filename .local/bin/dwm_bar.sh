@@ -15,7 +15,7 @@ DIR=$(dirname "$LOC")
 
 # Change the appearance of the module identifier. if this is set to "unicode", then symbols will be used as identifiers instead of text. E.g. [📪 0] instead of [MAIL 0].
 # Requires a font with adequate unicode character support
-export IDENTIFIER="unicode"
+#export IDENTIFIER="unicode"
 
 # Change the charachter(s) used to seperate modules. If two are used, they will be placed at the start and end.
 export SEP1=" {"
@@ -44,8 +44,19 @@ export SEP2="}"
 #. "$DIR/bar-functions/dwm_loadavg.sh"
 
 # Update dwm status bar every second
-while true
-do
-    xsetroot -name "$(dwm_spotify)$(dwm_resources)$(dwm_pulse)$(dwm_date)"
-    sleep 1
-done
+if [ $( wmctrl -m | grep 'Name' | awk '{print $2}' ) = spectrwm ]
+then
+    export IDENTIFIER=""
+    while true
+    do
+        echo "$(dwm_resources) +@fg=3; $(dwm_pulse) +@fg=5; $(dwm_date)"
+        sleep 1
+    done
+else
+    export IDENTIFIER="unicode"
+    while true
+    do
+        xsetroot -name "$(dwm_spotify)$(dwm_resources)$(dwm_pulse)$(dwm_date)"
+        sleep 1
+    done
+fi
