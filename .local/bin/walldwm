@@ -17,7 +17,7 @@ bgloc="${XDG_DATA_HOME:-$HOME/.local/share/}/bg.jpg"
 wal -i "$(readlink -f  "$bgloc")" -o "${XDG_CONFIG_HOME:-$HOME/.config}/wal/postrun" >/dev/null 2>&1 
 
 wait
-cd /home/xzecora/Documents/dwm/ && sudo make clean install >> /dev/null
+cd /home/xzecora/Documents/zecwm/ && sudo make clean install >> /dev/null
 wait
 dunstcolors &
 keyboardcolors &
