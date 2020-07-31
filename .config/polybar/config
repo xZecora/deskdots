@@ -13,7 +13,7 @@
 ;background = ${xrdb:color0:#222}
 ;background = #222
 background-alt = #444
-foreground = ${xrdb:color6:#222}
+foreground = ${xrdb:color8:#222}
 ;foreground = #dfdfdf
 foreground-alt = #555
 primary = #ffb52a
@@ -69,6 +69,14 @@ cursor-scroll = ns-resize
 
 enable-ipc = true
 
+[bar/i3]
+inherit = bar/main
+wm-restack = i3
+modules-left = date RightArrow3 RightArrow2 RightArrow1i3
+modules-center = MiddleArrowLefti3 i3 MiddleArrowRighti3
+modules-right = arrow1i3 LeftStripe arrow3 cpu arrow2 memory arrow3 temperature
+background = ${colors.background}
+
 [bar/left]
 inherit = bar/main
 monitor = DVI-D-0
@@ -76,10 +84,21 @@ modules-left =
 modules-right =arrow1 LeftStripe arrow3 bspwm 
 padding-right = 0
 modules-center = 
+
 [bar/right]
 inherit = bar/main
 monitor = HDMI-0
 modules-left = bspwm RightArrow3 RightArrow2 RightArrow1
+modules-right = 
+modules-center = 
+
+padding-right = 5
+tray-padding = 5
+
+[bar/i3right]
+inherit = bar/i3
+monitor = HDMI-0
+modules-left = i3 RightArrow3 RightArrow2 RightArrow1i3
 modules-right = 
 modules-center = 
 
@@ -163,6 +182,12 @@ content = ""
 content-foreground = ${colors.foreground}
 content-background = ${colors.tbackground}
 
+[module/arrow1i3]
+type = custom/text
+content = ""
+content-foreground = ${colors.foreground}
+content-background = ${colors.background}
+
 [module/arrow2]
 type = custom/text
 content = " "
@@ -187,6 +212,12 @@ content = ""
 content-foreground = ${colors.foreground}
 content-background = ${colors.tbackground}
 
+[module/RightArrow1i3]
+type = custom/text
+content = ""
+content-foreground = ${colors.foreground}
+content-background = ${colors.background}
+
 [module/RightArrow2]
 type = custom/text
 content = ""
@@ -204,14 +235,29 @@ type = custom/text
 content = ""
 ;content = ""
 content-foreground = ${colors.foreground}
-;content-background = ${colors.tbackground}
+content-background = ${colors.tbackground}
 ;◥ ◤◢ ◣
+
+[module/MiddleArrowLefti3]
+type = custom/text
+content = ""
+;content = ""
+content-foreground = ${colors.foreground}
+content-background = ${colors.background}
+
 [module/MiddleArrowRight]
 type = custom/text
 content = ""
 ;1content = ""
 content-foreground = ${colors.foreground}
 content-background = ${colors.tbackground}
+
+[module/MiddleArrowRighti3]
+type = custom/text
+content = ""
+;1content = ""
+content-foreground = ${colors.foreground}
+content-background = ${colors.background}
 
 
 [module/memory]

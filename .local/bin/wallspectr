@@ -19,6 +19,8 @@ wal -i "$(readlink -f  "$bgloc")" -o "${XDG_CONFIG_HOME:-$HOME/.config}/wal/post
 wait
 dunstcolors &
 keyboardcolors &
+wal-discord -t &
+python ~/Documents/wal_steam/wal_steam.py -w >> /dev/null &
 #sudo /home/xzecora/.local/bin/fancolors
 #sudo python /home/xzecora/Documents/thermaltake/run.py
 spectrcolors
