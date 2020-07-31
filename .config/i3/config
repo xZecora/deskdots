@@ -1,0 +1,230 @@
+####################################################################
+####################################################################
+######## ██╗██████╗        ██████╗  █████╗ ██████╗ ███████╗ ########
+######## ██║╚════██╗      ██╔════╝ ██╔══██╗██╔══██╗██╔════╝ ########
+######## ██║ █████╔╝█████╗██║  ███╗███████║██████╔╝███████╗ ########
+######## ██║ ╚═══██╗╚════╝██║   ██║██╔══██║██╔═══╝ ╚════██║ ########
+######## ██║██████╔╝      ╚██████╔╝██║  ██║██║     ███████║ ########
+######## ╚═╝╚═════╝        ╚═════╝ ╚═╝  ╚═╝╚═╝     ╚══════╝ ########
+####################################################################
+####################################################################
+
+# Sets default mod key, Mod4 for windows/super key and Mod1 for alt
+set $mod Mod4
+
+# Terminal Emulator
+set $terminal st 
+
+# Opens PDF listing all hotkeys and what they do
+bindsym $mod+Shift+b exec zathura ~/Documents/Hotkeys.pdf
+#===============================================================================
+# General
+#
+# Color Imports
+set_from_resource $bg color2
+set_from_resource $fg color7
+set_from_resource $bgb color1
+
+# Border Colors
+# Wal
+client.focused              $bg     $bgb    $fg    $bgb
+client.unfocused            $bg     $bg     $fg     $bg
+client.focused_inactive     $bg     $bg     $fg     $bg
+client.urgent               $bg     $bg     $fg     $bg
+
+# Border Thickness
+for_window [class="^.*"] border pixel 4
+for_window [floating] border pixel 0
+border_radius 4
+new_float none
+floating_maximum_size -1 x -1
+
+# Workspace back and forth
+#workspace_auto_back_and_forth yes 
+
+# Gap size
+gaps inner 10
+#gaps outer 4
+
+# Default font
+font pango:System San Francisco Display 10
+
+# Use Mouse+$mod to drag around floating windows
+floating_modifier $mod
+
+#===============================================================================
+
+# Application Hotkeys
+#
+# Open Allacritty in current workspace
+bindsym Ctrl+grave exec $terminal
+# Open Alacritty in terminal workspace
+bindsym Ctrl+Shift+grave workspace $ws1; exec $terminal
+# Kill focused window
+bindsym Ctrl+Shift+q kill
+# Open rofi (application launcer)
+bindsym $mod+d exec "rofi -combi-modi drun,run -show combi"
+# Browser
+bindsym $mod+Shift+f workspace $ws3 exec qutebrowser
+# Retroarch
+bindsym $mod+Shift+z workspace $ws5 exec org.libretro.RetroArch
+# Calcurse
+bindsym $mod+Ctrl+c workspace $ws4 exec $terminal -e calcurse
+# Ranger
+bindsym $mod+Ctrl+r exec $terminal -e ranger
+# Discord
+bindsym $mod+Shift+d workspace $ws2 exec Discord
+# Spotify
+bindsym $mod+Shift+s workspace $ws6 exec spotify
+# Thunar
+bindsym $mod+Shift+t exec thunar
+# Flex
+bindsym $mod+Ctrl+Shift+f exec "i3-msg 'workspace  Terminals; exec $terminal -e gtop'"; exec "sleep 1; i3-msg 'workspace  Qutebrowser; exec $terminal -e vim i3config'"; exec "sleep 2; exec ./test.sh neofetch"; exec "sleep 3; i3-msg 'splitv; exec $terminal -e ranger'"; exec "sleep 4; i3-msg 'workspace  Discord; exec $terminal -e vim .vimrc'"; exec "sleep 5; i3-msg 'splitv; exec $terminal -e vim .zshrc'"; exec "sleep 6; i3-msg 'splith; exec $terminal -e vim polybar'";exec "sleep 7; i3-msg 'focus up;splith ; exec $terminal -e vim alacritty'"
+# Change Wallpaper
+bindsym $mod+backslash exec setbg ~/Documents/Wallpapers/wallpaper78.jpg
+# Writing Setup
+bindsym $mod+Shift+w exec terminalcolorssolid; exec "sleep 1; i3-msg 'workspace  Spotify; exec spotify'"; exec "sleep 2; i3-msg 'fullscreen toggle'"; exec "sleep 3; i3-msg 'workspace  Calender; exec $terminal -e cava'"; exec "sleep 4; i3-msg 'fullscreen toggle'"; exec "sleep 5; i3-msg 'workspace  FireFox; exec $terminal -e vim;'"; exec "sleep 6; i3-msg 'fullscreen toggle'"
+# Shutdown Prompt
+bindsym Ctrl + Shift + Return exec powermenu.sh
+#===============================================================================
+
+# Workspace and Navigation
+#
+# Change focused window
+bindsym $mod+comma focus left
+bindsym $mod+slash focus down
+bindsym $mod+apostrophe focus up
+bindsym $mod+period focus right
+
+# Move focused window
+bindsym $mod+Shift+comma move left
+bindsym $mod+Shift+slash move down
+bindsym $mod+Shift+apostrophe move up
+bindsym $mod+Shift+period move right
+
+# Horizontal split mode
+bindsym $mod+v split v 
+bindsym $mod+b split h
+
+# Define names for default workspaces for which we configure key bindings later on.
+# We use variables to avoid repeating the names in multiple places.
+set $ws1 " Terminals"
+set $ws2 " Discord"
+set $ws3 " QuteBrowser"
+set $ws4 " Calender"
+set $ws5 " RetroArch"
+set $ws6 " Spotify"
+set $ws7 " Games"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+# Hotkeys to switch between workspaces
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
+
+# Hotkeys to move focused windows to specific workspaces 
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10
+
+# Assigns workspaces to specific monitors
+workspace $ws1 output DVI-D-0
+workspace $ws2 output HDMI-0
+workspace $ws3 output DP-0
+workspace $ws4 output HDMI-0
+workspace $ws5 output DP-0
+workspace $ws6 output DVI-D-0
+
+# Assigns specific applications to associated workspaces
+assign [class="firefox"] $ws3
+assign [class="discord"] $ws2
+assign [title="calcurse"] $ws4
+assign [title="terminal"] $ws1
+assign [class="retroarch"] $ws5
+assign [class="steam"] $ws7
+assign [class="Spotify"] $ws6
+
+#===============================================================================
+
+# i3 hotkeys
+#
+# Reload the config file
+bindsym $mod+Shift+c reload
+# Restart i3 in place
+bindsym $mod+Shift+r restart
+# Exit i3
+bindsym $mod+Shift+e exec powermenu.sh 
+# Lock desktop
+bindsym $mod+Shift+x exec i3lock-fancy -t "OwO Whats dis? I'm wocked UwU"
+# Toggle floating
+bindsym $mod+Shift+space floating toggle, restart
+
+#===============================================================================
+
+# Resize Hotkeys
+#
+# Make focused window 10 px thinner
+bindsym $mod+h resize shrink width 10 px or 10 ppt
+# Make focused window 10 px taller
+bindsym $mod+j resize grow height 10 px or 10 ppt
+# Make focused window 10 px shorter
+bindsym $mod+k resize shrink height 10 px or 10 ppt
+# Make focused window 10 px wider
+bindsym $mod+l resize grow width 10 px or 10 ppt
+# Toggle Fullscreen 
+bindsym $mod+f fullscreen toggle
+
+# Gaps Hotkeys
+#
+# Increase all gaps by 5
+bindsym $mod+Shift+j gaps inner current plus 5
+# Decrease all gaps by 5
+bindsym $mod+Shift+k gaps inner current minus 5
+# Increase current workspace gaps by 5
+bindsym Ctrl+Shift+j gaps inner all plus 5
+# Decrease current workspace gaps by 5
+bindsym Ctrl+Shift+k gaps inner all minus 5
+# Reset all gaps to default
+bindsym $mod+Ctrl+semicolon gaps inner all set 10
+# Set current workspace gaps to 0
+bindsym $mod+Shift+semicolon gaps inner all set 0
+
+# Alacritty Hotkeys
+#
+# Make Terminals Transparent
+#bindsym $mod+b exec terminalcolors
+# Make Terminals Solid
+#bindsym $mod+n exec terminalcolorssolid
+#===============================================================================
+
+# Startup Processes
+#
+# Set wallpaper and theme randomly from a selection
+exec --no-startup-id setbg ~/Documents/Wallpapers/wallpaper78.jpg &
+# Launch my polybar
+exec_always --no-startup-id ~/.config/polybar/i3launch.sh &
+# Hide my mouse
+exec --no-startup-id unclutter --timeout 5 &
+# Fix loading pointer
+exec xsetroot -cursor_name left_ptr &
+# Start Compton
+#exec --no-startup-id compton &
+# Set case fan colors
+exec --no-startup-id sudo linux-thermaltake-rgb &
+#===============================================================================
