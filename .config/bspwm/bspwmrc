@@ -22,6 +22,7 @@ bspc monitor HDMI-0 -d II  VII VIII IX X
 
 bspc config border_width         4
 bspc config window_gap           12
+bspc config border_radius        12
 
 wal -R
 . "${HOME}/.cache/wal/colors.sh"

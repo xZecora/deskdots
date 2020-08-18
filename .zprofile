@@ -38,3 +38,4 @@ else
 fi
 clear
 pfetch
+${HOME}/.local/bin/schedule

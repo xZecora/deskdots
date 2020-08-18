@@ -46,6 +46,8 @@ alias ls="exa -als type"
 alias dwm="startx ~/.xinitrc dwm"
 alias spectrwm="startx ~/.xinitrc spectrwm"
 alias bspwm="startx ~/.xinitrc bspwm"
+alias i3="startx ~/.xinitrc i3"
+
 HISTSIZE=10000
 SAVEHIST=10000
 HISTFILE=~/.cache/zsh/.zsh_history

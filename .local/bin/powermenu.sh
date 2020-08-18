@@ -9,5 +9,5 @@ elif [ "$response" = "Shut Down" ]; then
 elif [ "$response" = "Lock" ]; then
     i3lock-fancy -t "OwO Whats Dis? I'm Wocked UwU"
 elif [ "$response" = "Quit XSession" ]; then
-    bspc quit & i3-msg exit
+    bspc quit & i3-msg exit & sudo killall dwm
 fi

@@ -1,4 +1,4 @@
-session=${1:-dwm}
+session=${1:-spectrwm}
 
 case $session in
     dwm                    ) exec dbus-launch --exit-with-session dwm;;

@@ -65,7 +65,7 @@ bindsym Ctrl+Shift+q kill
 # Open rofi (application launcer)
 bindsym $mod+d exec "rofi -combi-modi drun,run -show combi"
 # Browser
-bindsym $mod+Shift+f workspace $ws3 exec qutebrowser
+bindsym $mod+Ctrl+f workspace $ws3 exec qutebrowser
 # Retroarch
 bindsym $mod+Shift+z workspace $ws5 exec org.libretro.RetroArch
 # Calcurse
@@ -73,11 +73,11 @@ bindsym $mod+Ctrl+c workspace $ws4 exec $terminal -e calcurse
 # Ranger
 bindsym $mod+Ctrl+r exec $terminal -e ranger
 # Discord
-bindsym $mod+Shift+d workspace $ws2 exec Discord
+bindsym $mod+Ctrl+d workspace $ws2 exec Discord
 # Spotify
-bindsym $mod+Shift+s workspace $ws6 exec spotify
+bindsym $mod+Ctrl+s workspace $ws6 exec spotify
 # Thunar
-bindsym $mod+Shift+t exec thunar
+bindsym $mod+Ctrl+t exec thunar
 # Flex
 bindsym $mod+Ctrl+Shift+f exec "i3-msg 'workspace  Terminals; exec $terminal -e gtop'"; exec "sleep 1; i3-msg 'workspace  Qutebrowser; exec $terminal -e vim i3config'"; exec "sleep 2; exec ./test.sh neofetch"; exec "sleep 3; i3-msg 'splitv; exec $terminal -e ranger'"; exec "sleep 4; i3-msg 'workspace  Discord; exec $terminal -e vim .vimrc'"; exec "sleep 5; i3-msg 'splitv; exec $terminal -e vim .zshrc'"; exec "sleep 6; i3-msg 'splith; exec $terminal -e vim polybar'";exec "sleep 7; i3-msg 'focus up;splith ; exec $terminal -e vim alacritty'"
 # Change Wallpaper
@@ -222,7 +222,7 @@ exec_always --no-startup-id ~/.config/polybar/i3launch.sh &
 # Hide my mouse
 exec --no-startup-id unclutter --timeout 5 &
 # Fix loading pointer
-exec xsetroot -cursor_name left_ptr &
+exec sleep 10 && xsetroot -cursor_name left_ptr &
 # Start Compton
 #exec --no-startup-id compton &
 # Set case fan colors
