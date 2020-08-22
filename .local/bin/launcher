@@ -4,5 +4,10 @@ killall sxhkd
 wait
 sxhkd &
 picom &
-sudo python /home/xzecora/Documents/thermaltake/run.py
-unclutter --timeout 5
+sudo python /home/xzecora/Documents/thermaltake/run.py &
+unclutter --timeout 5 &
+if [ "$(pidof ckb-next)" = "" ]
+then
+    ckb-next -b &
+    sleep .1 && keyboardcolors
+fi

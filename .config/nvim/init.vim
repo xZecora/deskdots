@@ -39,6 +39,7 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
+Plugin 'javacomplete'
 Plugin 'lervag/vimtex'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'davidhalter/jedi-vim'
@@ -180,7 +181,8 @@ set notimeout ttimeout ttimeoutlen=200
 " Use <F11> to toggle between 'paste' and 'nopaste'
 set pastetoggle=<F11>
  
- 
+set cinoptions+=j1
+
 "------------------------------------------------------------
 " Indentation options {{{1
 "

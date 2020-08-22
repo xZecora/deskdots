@@ -2,7 +2,7 @@
 # https://htmlpreview.github.io/?https://github.com/conformal/spectrwm/blob/master/spectrwm.html
 # NOTE: all rgb color values in this file are in hex! see XQueryColor for examples
 
-workspace_limit	            = 9
+workspace_limit	            = 10
 focus_mode	            = follow
 focus_close	            = last
 focus_close_wrap    	    = 1
@@ -43,7 +43,6 @@ bar_font	            = MesloLGS NF:style=regular:pixelsize=14:antialias=true
 bar_justify	            = center
 bar_format	            = +|L+1<+I +1<+W +|R+@fg=2;+A+1<
 workspace_indicator 	    = listcurrent,listactive,markcurrent,printnames
-bar_at_bottom	     	    = 0
 stack_enabled	            = 0
 clock_enabled	    	    = 0
 clock_format	    	    = %a %b %d %R %Z %Y
@@ -66,6 +65,9 @@ urgent_enabled	    	    = 1
 # Launch applications in a workspace of choice
 autorun = ws[1]:wal -R
 autorun = ws[1]:picom
+autorun = ws[1]:ckb-next -b
+autorun = ws[1]:keyboardcolors
+autorun = ws[1]:sudo python /home/xzecora/Documents/thermaltake/run.py
 
 # Customize workspace layout at start
 # layout		= ws[1]:4:0:0:0:vertical
@@ -75,15 +77,16 @@ autorun = ws[1]:picom
 # layout		= ws[5]:0:0:0:0:horizontal_flip
 
 # Set workspace name at start
-#name			    = ws[1]:dev
-#name			    = ws[2]:www
-#name			    = ws[3]:sys
-#name			    = ws[4]:doc
-#name			    = ws[5]:vbox
-#name			    = ws[6]:chat
-#name			    = ws[7]:mus
-#name			    = ws[8]:vid
-#name			    = ws[9]:gfx
+name			    = ws[1]:1
+name			    = ws[2]:2
+name			    = ws[3]:3
+name			    = ws[4]:4
+name			    = ws[5]:5
+name			    = ws[6]:6
+name			    = ws[7]:7
+name			    = ws[8]:8
+name			    = ws[9]:9
+name                        = ws[10]:0
 
 # Mod key, (Windows key is Mod4) (Apple key on OSX is Mod2)
 modkey = Mod4
@@ -202,7 +205,7 @@ bind[search_workspace]	= MOD+slash
 bind[stack_dec]		= MOD+Shift+period
 bind[stack_inc]		= MOD+Shift+comma
 bind[stack_reset]	= MOD+Shift+space
-# bind[swap_main]		= MOD+Return
+bind[swap_main]		= MOD+Return
 bind[swap_next]		= MOD+Shift+j
 bind[swap_prev]		= MOD+Shift+k
 bind[uniconify]		= MOD+Shift+w
@@ -258,6 +261,9 @@ bind[discord]           = MOD+Control+d
 
 program[music]          = spotify
 bind[music]             = MOD+Control+s
+
+program[powermenu]      = powermenu.sh
+bind[powermenu]         = MOD+Shift+Return
 
 ### MEDIA AND VOLUME KEYBINDINGS ###
 

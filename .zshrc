@@ -8,18 +8,14 @@
 ########╚══════╝╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝########
 ########################################################
 ########################################################
-if [ "$(echo $TMUX)" != "" ]
+if [ "$(echo $TERM)" != "st" ]
 then
     autoload -U colors && colors 
     PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}%% %b"
-elif [ "$(tty | grep tty)" = "" ]
-then
+else
     source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
     ZSH_THEME="powerlevel10k/powerlevel10k"
     [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-else
-    autoload -U colors && colors 
-    PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}%% %b"
 fi
 
 export PATH=$HOME/.local/bin:$HOME/bin:/usr/local/bin:$PATH
@@ -51,3 +47,9 @@ alias i3="startx ~/.xinitrc i3"
 HISTSIZE=10000
 SAVEHIST=10000
 HISTFILE=~/.cache/zsh/.zsh_history
+
+if [ "$TERM" = "xterm-256color" ]
+then
+    DISPLAY=:10 wallspectr ~/.local/share/bg.jpg
+    clear
+fi
