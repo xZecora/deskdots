@@ -27,7 +27,7 @@ export SEP2="}"
 #. "$DIR/bar-functions/dwm_transmission.sh"
 #. "$DIR/bar-functions/dwm_cmus.sh"
 #. "$DIR/bar-functions/dwm_mpc.sh"
-. "$DIR/bar-functions/dwm_spotify.sh"
+#. "$DIR/bar-functions/dwm_spotify.sh"
 . "$DIR/bar-functions/dwm_resources.sh"
 #. "$DIR/bar-functions/dwm_battery.sh"
 #. "$DIR/bar-functions/dwm_mail.sh"
@@ -49,14 +49,14 @@ then
     export IDENTIFIER=""
     while true
     do
-        echo "$(dwm_resources) +@fg=3; $(dwm_pulse) +@fg=5; $(dwm_date)"
+        echo "{IP $(wget http://ipecho.net/plain -O - -q ; echo)}+@fg=3; $(dwm_resources) +@fg=5; $(dwm_pulse) +@fg=6; $(dwm_date)"
         sleep 1
     done
 else
     export IDENTIFIER="unicode"
     while true
     do
-        xsetroot -name "$(dwm_spotify)$(dwm_resources)$(dwm_pulse)$(dwm_date)"
+        xsetroot -name "{ $(wget http://ipecho.net/plain -O - -q ; echo)}$(dwm_resources)$(dwm_pulse)$(dwm_date)"
         sleep 1
     done
 fi

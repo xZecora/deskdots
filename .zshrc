@@ -18,13 +18,17 @@ else
     [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 fi
 
-export PATH=$HOME/.local/bin:$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/.local/bin:$HOME/bin:/usr/local/bin:$PATH:$HOME/Downloads/zoom
 
 export ZSH="/home/xzecora/.config/oh-my-zsh"
  
 HYPHEN_INSENSITIVE="true"
 
 export UPDATE_ZSH_DAYS=1
+export XDG_RUNTIME_DIR=/home/xzecora/.cache/xdg
+export RUNLEVEL=3
+export GOPATH=/home/xzecora/go
+export RUST_BACKTRACE=full
 
 plugins=(git)
 
@@ -35,14 +39,17 @@ alias bspwmrc="vim ~/.config/bspwm/bspwmrc"
 alias sxhkdrc="vim ~/.config/sxhkd/sxhkdrc"
 alias polybarconf="vim ~/.config/polybar/config"
 alias zshrc="vim ~/.zshrc"
-alias vimrc="vim ~/.vimrc"
+alias vimrc="vim ~/.config/nvim/init.vim"
 alias xbps="sudo xbps-install"
+alias xbpsr="sudo xbps-remove -R"
 alias vis="cli-visualizer"
 alias ls="exa -als type"
 alias dwm="startx ~/.xinitrc dwm"
 alias spectrwm="startx ~/.xinitrc spectrwm"
 alias bspwm="startx ~/.xinitrc bspwm"
 alias i3="startx ~/.xinitrc i3"
+alias due="cat Documents/Duedate"
+alias ip="wget http://ipecho.net/plain -O - -q ; echo"
 
 HISTSIZE=10000
 SAVEHIST=10000

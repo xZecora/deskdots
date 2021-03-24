@@ -20,7 +20,6 @@ color5=$(echo $(xrdb -query | awk '/*.color5/ { print substr($2,2,2) }')/$(xrdb 
 color6=$(echo $(xrdb -query | awk '/*.color6:/ { print substr($2,2,2) }')/$(xrdb -query | awk '/*.color6:/ { print substr($2,4,2) }')/$(xrdb -query | awk '/*.color6:/ { print substr($2,6,2) }'))
 color7=$(echo $(xrdb -query | awk '/*.color7/ { print substr($2,2,2) }')/$(xrdb -query | awk '/*.color7/ { print substr($2,4,2) }')/$(xrdb -query | awk '/*.color7/ { print substr($2,6,2) }'))
 color8=$(echo $(xrdb -query | awk '/*.color8/ { print substr($2,2,2) }')/$(xrdb -query | awk '/*.color8/ { print substr($2,4,2) }')/$(xrdb -query | awk '/*.color8/ { print substr($2,6,2) }'))
-echo $color0 $color1 $color2 $color3 $color4 $color5 $color6 $color7 $color8
 
 sed -i "s+%clbg%+$background+g" $target_file.tmp
 sed -i "s+%cl0%+$color0+g" $target_file.tmp

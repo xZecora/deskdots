@@ -15,10 +15,14 @@ launcher &
 xsetroot -cursor_name left_ptr &
 sudo chown xzecora /dev/input/by-id/usb-mayflash_limited_MAYFLASH_GameCube_Controller_Adapter-event-joystick &
 #xrandr --output DP-0 --primary && nvidia-settings --assign CurrentMetaMode="HDMI-0: nvidia-auto-select +2560+152 {ForceCompositionPipeline=On}, DP-0: 2560x1440_165 +0+0 {ForceCompositionPipeline=On}" &
+if [ "$(pidof spotifyd)" = "" ]
+then
+     spotifyd &
+fi
 
-
-bspc monitor DP-0 -d I III IV V VI 
-bspc monitor HDMI-0 -d II  VII VIII IX X
+bspc monitor DP-0 -d I IV VII 
+bspc monitor HDMI-0 -d II V VIII X
+bspc monitor DVI-D-0 -d III VI IX
 
 bspc config border_width         4
 bspc config window_gap           12

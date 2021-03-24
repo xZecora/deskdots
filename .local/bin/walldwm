@@ -24,6 +24,6 @@ dunstcolors &
 keyboardcolors &
 wal-discord -t &
 python ~/Documents/wal_steam/wal_steam.py -w >> /dev/null &
-#sudo /home/xzecora/.local/bin/fancolors
-#sudo python /home/xzecora/Documents/thermaltake/run.py
+#sudo /home/xzecora/.local/bin/fancolors &&
+sudo python /home/xzecora/linux_thermaltake_riing/run.py & 
 kill -HUP $(pidof dwm)

@@ -59,7 +59,7 @@ super + shift + d
         Discord
 
 super + shift + s
-        spotify
+        st -e spotify-tui
 
 super + control + s
         steam

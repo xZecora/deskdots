@@ -68,6 +68,7 @@ autorun = ws[1]:picom
 autorun = ws[1]:ckb-next -b
 autorun = ws[1]:keyboardcolors
 autorun = ws[1]:sudo python /home/xzecora/Documents/thermaltake/run.py
+autorun = ws[1]:spotifyd
 
 # Customize workspace layout at start
 # layout		= ws[1]:4:0:0:0:vertical
@@ -259,12 +260,14 @@ bind[qutebrowser]	= MOD+Control+f
 program[discord]        = Discord
 bind[discord]           = MOD+Control+d
 
-program[music]          = spotify
+program[music]          = st -e spotify-tui
 bind[music]             = MOD+Control+s
 
 program[powermenu]      = powermenu.sh
 bind[powermenu]         = MOD+Shift+Return
 
+program[thunar]         = thunar
+bind[thunar]            = MOD+Control+t
 ### MEDIA AND VOLUME KEYBINDINGS ###
 
 program[volup]          = pactl set-sink-volume 1 +1%

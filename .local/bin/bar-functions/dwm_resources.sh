@@ -13,7 +13,7 @@ dwm_resources () {
     # Used and total storage in /home (rounded to 1024B)
     STOUSED=$(df -h | grep '/home$' | awk '{print $3}')
     STOTOT=$(df -h | grep '/home$' | awk '{print $2}')
-    STOPER=$(df -h | grep '/dev/sdb2' | awk '{print $5}')
+    STOPER=$(df -h | grep '/dev/sda2' | awk '{print $5}')
 
     printf "%s" "$SEP1"
     if [ "$IDENTIFIER" = "unicode" ]; then

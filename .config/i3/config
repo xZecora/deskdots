@@ -75,7 +75,7 @@ bindsym $mod+Ctrl+r exec $terminal -e ranger
 # Discord
 bindsym $mod+Ctrl+d workspace $ws2 exec Discord
 # Spotify
-bindsym $mod+Ctrl+s workspace $ws6 exec spotify
+bindsym $mod+Ctrl+s workspace $ws6 exec st -e spotify-tui
 # Thunar
 bindsym $mod+Ctrl+t exec thunar
 # Flex
@@ -227,4 +227,5 @@ exec sleep 10 && xsetroot -cursor_name left_ptr &
 #exec --no-startup-id compton &
 # Set case fan colors
 exec --no-startup-id sudo linux-thermaltake-rgb &
+exec --no-startup-id spotifyd
 #===============================================================================
